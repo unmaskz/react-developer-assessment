@@ -27,7 +27,6 @@
     "react-moment": "^1.1.1",
     "react-paginate": "^7.1.0",
     "react-scripts": "4.0.3",
-    "react-scroll-to-top": "^1.0.5",
     "react-time-ago": "^6.2.2",
     "typescript": "^4.0.5",
     "web-vitals": "^0.2.4"
