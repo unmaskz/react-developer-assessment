@@ -5,7 +5,7 @@ export const getPosts = async () => {
     return {
         total: response.posts.length,
         posts: response.posts,
-    }
+    };
 }
 
 export const getCategories = async () => {
@@ -13,19 +13,20 @@ export const getCategories = async () => {
     .then(data => data.json());
 }
 
-export const getPostsByCategory = (posts: Post[], filterCategory: string) => {
-    if (filterCategory === 'All') {
-        return posts;
-    } else {
-        const postsByCategory: Post[] = [];
-        posts.forEach((post) => {
-            post.categories.forEach((category) => {
-                if (category.name === filterCategory) {
-                    postsByCategory.push(post);
-                }
-            });
+export const getPostsByCategory = async (filterCategory: string) => {
+    const postsByCategory : Post[] = [];
+    const data = await getPosts();
+    data.posts.forEach((post: Post) => {
+        post.categories.forEach((category) => {
+            if (category.name === filterCategory) {
+                postsByCategory.push(post);
+            }
         });
-        return postsByCategory;
+    });
+    return {
+        category: filterCategory,
+        posts: postsByCategory,
+        total: postsByCategory.length,
     }
 }
 
