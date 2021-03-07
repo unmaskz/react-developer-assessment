@@ -1,12 +1,22 @@
-import React, { ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+import { getCategories } from 'services';
 import { Props } from './Options.interface';
 
 import s from './Options.module.scss';
 
 const Options = (props: Props): JSX.Element => {
-    const { categories, filter, changeCategoryFilter } = props;
+    const { filter, changeCategoryFilter } = props;
+    const [categories, setCategories] = useState<Array<string>>([]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const categories = await getCategories();
+            setCategories(categories);
+        }
+        fetchCategories();
+    }, []);
 
     return (
         <section className={s.options}>
