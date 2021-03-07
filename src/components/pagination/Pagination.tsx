@@ -10,7 +10,6 @@ import s from './Pagination.module.scss';
 
 const PostsPagination = (props: Props): JSX.Element => {
     const { pageSize, total, page, onChange} = props;
-    console.log(total);
 
     return (
         <section className={s.pagination}>
