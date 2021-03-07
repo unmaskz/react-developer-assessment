@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'react-flexbox-grid/dist/react-flexbox-grid.js';
 
 /**
  * This file can be ignored, please work in ./components/App.jsx
  */
 
 // Include mock API.
-import './mock';
+import 'mock';
 
 // Include styles.
-import './styles/index.css';
+import 'styles/index.scss';
+
 
 // Include application component.
-import App from './components/App';
+import App from 'components/app/App';
 
 ReactDOM.render(
   <React.StrictMode>

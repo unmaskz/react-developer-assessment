@@ -1,0 +1,16 @@
+@import 'styles/config.scss';
+
+.timeAgo {
+    @include rem(margin-bottom, 15px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @include breakpoint(md) {
+        margin-bottom: 0;
+    }
+
+    &__icon {
+        @include rem(margin-right, 5px);
+    }
+}

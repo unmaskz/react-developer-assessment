@@ -1,0 +1,28 @@
+@import 'styles/config.scss';
+
+.categories {
+    @include rem(margin-bottom, 15px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include breakpoint(md) {
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__category {
+        @include rem(font-size, 12px);
+        @include border-radius(25px);
+        @include rem(padding, 3px 6px);
+        @include rem(margin-bottom, 5px);
+        @include rem(margin-right, 5px);
+        background-color: $color-light;
+        text-transform: uppercase;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

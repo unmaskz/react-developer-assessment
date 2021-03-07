@@ -1,0 +1,45 @@
+@import 'styles/config.scss';
+
+.pagination {
+    @include rem(margin-top, 30px);
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        @include breakpoint(md) {
+            align-items: flex-start;
+        }
+
+        li {
+            @include rem(margin-right, 5px);
+            display: flex;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                @include border-radius(5px);
+                @include rem(padding, 10px 5px);
+                background-color: transparent;
+                color: $color-white;
+                border: 1px solid transparent;
+
+                @include breakpoint(md) {
+                    @include rem(padding, 15px);
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    color: $color-border;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+@import 'styles/config.scss';
+
+
+.app {
+    @include rem(margin, 30px 0);
+}
