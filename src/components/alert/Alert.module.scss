@@ -1,0 +1,15 @@
+@import 'styles/config.scss';
+
+.alert {
+    @include rem(padding, 15px);
+
+    &___success {
+        background-color: $color-success;
+        border: 1px solid darken($color-success, 5%);
+    }
+
+    &___danger {
+        background-color: $color-danger;
+        border: 1px solid darken($color-danger, 5%);
+    }
+}
