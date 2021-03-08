@@ -6,7 +6,7 @@ import Spinner from 'components/spinner/Spinner';
 import { Params } from 'types';
 import { getPostById } from 'services';
 
-import s from './PostDetails.module.scss';
+import s from 'components/post/Post.module.scss';
 
 const PostDetails = (): JSX.Element => {
     const { id } = useParams<Params>();
@@ -29,7 +29,7 @@ const PostDetails = (): JSX.Element => {
     }, [id, history]);
 
     return (
-        <section className={s.postDetails}>
+        <section>
             <Grid>
                 <Row>
                     <Col xs={12}>
