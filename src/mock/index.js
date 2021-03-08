@@ -10,11 +10,13 @@ createServer({
       return data;
     });
 
+    /* Adding new route to fetch a post by id */
     this.get('/posts/:id', (schema, request) => {
       const { id } = request.params;
       return data.posts.find(post => post.id === id);
     });
 
+    /* Adding new route to fetch all unique categories from posts */
     this.get('/categories', () => {
       let { posts } = data;
       let categories = [];

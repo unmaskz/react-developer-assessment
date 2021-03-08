@@ -6,7 +6,7 @@ import Posts from 'components/posts/Posts';
 import Spinner from 'components/spinner/Spinner';
 import { getPosts, getPostsByCategory } from 'services';
 import { Post } from 'types';
-import { pageSize } from 'config';
+import { pageSize } from 'config'; // Ideally pageSize would be an option that could be set e.g. 5, 10, 50 etc.
 
 import s from './App.module.scss';
 
@@ -32,7 +32,8 @@ const App = (): JSX.Element => {
     useEffect(() => {
         setLoaded(false);
         const fetchPosts = async () => {
-            const { posts, total } = categoryFilter === 'All'? await getPosts() : await getPostsByCategory(categoryFilter); 
+            const results = categoryFilter === 'All' ? await getPosts() : await getPostsByCategory(categoryFilter); 
+            const { posts, total } = results;
             const start = (page - 1) * pageSize;
             const end = start + pageSize;
             setTotalPosts(total);

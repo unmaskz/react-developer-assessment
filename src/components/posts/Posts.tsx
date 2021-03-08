@@ -7,13 +7,15 @@ import { Props } from './Posts.interface';
 import s from './Posts.module.scss';
 
 const Posts = ({ posts }: Props): JSX.Element => {
+    /* Sorting posts by publishDate in ascending order */
+    const sortedPosts = posts.sort((a, b) => a.publishDate > b.publishDate ? -1 : 1);
     return (
         <section className={s.posts}>
             <Grid>
                 <Row>
                     <Col xs={12}>
                         <div className={s.posts__items}>
-                            {posts.map(post => {
+                            {sortedPosts.map(post => {
                                 const { id, title, summary, categories, author, publishDate } = post;
                                 
                                 return (

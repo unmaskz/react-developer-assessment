@@ -8,11 +8,13 @@ export const getPosts = async () => {
     };
 }
 
+/* Fetches all categories */
 export const getCategories = async () => {
     return await fetch('/api/categories')
     .then(data => data.json());
 }
 
+/* Fetches all posts from a specific category */
 export const getPostsByCategory = async (filterCategory: string) => {
     const postsByCategory : Post[] = [];
     const data = await getPosts();
@@ -28,9 +30,4 @@ export const getPostsByCategory = async (filterCategory: string) => {
         posts: postsByCategory,
         total: postsByCategory.length,
     }
-}
-
-export const getPostsPerPage = async (page: number) => {
-    return await fetch(`/api/posts/page/${page}`)
-    .then(data => data.json())
 }
