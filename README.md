@@ -47,7 +47,7 @@ These are the minimum requirements for the exercies:
 
 If you have time then demonstrating any of the following would be considered as a bonus:
 
-- [ ] Use client-side routing to create a "detail" page.
+- [x] Use client-side routing to create a "detail" page.
 - [ ] Persist filter state in the query string.
 - [x] Include animated transitions between application state, e.g. when filtering.
 - [x] Convert the application to use TypeScript instead of JavaScript.
