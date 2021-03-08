@@ -2,7 +2,6 @@
 
 .options {
     @include rem(margin-bottom, 30px);
-    @include border-radius(5px);
     @include rem(padding, 15px);
     display: flex;
     flex-direction: column;
@@ -34,7 +33,6 @@
         }
 
         select {
-            @include border-radius(4px);
             border: 0;
         }
     }

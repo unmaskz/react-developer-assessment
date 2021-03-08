@@ -14,7 +14,6 @@
 
     &__category {
         @include rem(font-size, 12px);
-        @include border-radius(25px);
         @include rem(padding, 3px 6px);
         @include rem(margin-bottom, 5px);
         @include rem(margin-right, 5px);

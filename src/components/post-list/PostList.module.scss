@@ -3,26 +3,6 @@
 .posts {
     display: flex;
 
-    &__header {
-        @include rem(margin-bottom, 30px);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    &__title {
-        @include rem(margin-right, 10px);
-        margin-bottom: 0;
-    }
-
-    &__total {
-        @include border-radius(15px);
-        @include rem(padding, 3px 15px);
-        background-color: $color-light;
-        text-align: center;
-    }
-
     .post {
         @include rem(padding, 15px);
         display: flex;

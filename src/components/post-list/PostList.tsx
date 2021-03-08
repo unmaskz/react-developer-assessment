@@ -53,10 +53,7 @@ const PostList = (): JSX.Element => {
                             filter={categoryFilter}
                             changeCategoryFilter={(category) => changeCategoryFilter(category)}
                         />
-                        <div className={s.posts__header}>
-                            <h1 className={s.posts__title}>Posts</h1>
-                            <div className={s.posts__total}>{totalPosts}</div>
-                        </div>
+                        <h1>Posts</h1>
                         {!loaded ? (
                             <Spinner />
                         ) : (

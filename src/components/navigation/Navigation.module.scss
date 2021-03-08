@@ -1,0 +1,25 @@
+@import 'styles/config.scss';
+
+.navigation {
+    @include rem(padding, 15px 0);
+    @include rem(margin-bottom, 30px);
+    background-color: rgba(0, 0, 0, .3);
+
+    &__links {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__link {
+        a {
+            color: $color-white;
+
+            &:hover {
+                color: $color-border;
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import Navigation from 'components/navigation/Navigation';
 import PostList from 'components/post-list/PostList';
 import PostDetails from 'components/post-details/PostDetails';
 import Error from 'components/error/Error';
@@ -10,6 +11,7 @@ import s from './App.module.scss';
 const App = (): JSX.Element => (
     <div className={s.app}>
         <BrowserRouter>
+            <Navigation />
             <Switch>
                 <Route exact path="/">
                     <PostList />
