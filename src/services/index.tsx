@@ -1,5 +1,6 @@
 import { Post } from 'types';
 
+/* Fetch all posts */
 export const getPosts = async () => {
     return await fetch('/api/posts')
     .then(data => data.json())
