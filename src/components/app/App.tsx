@@ -1,67 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import PostsPagination from 'components/pagination/Pagination';
-import Options from 'components/options/Options';
-import Posts from 'components/posts/Posts';
-import Spinner from 'components/spinner/Spinner';
-import { getPosts, getPostsByCategory } from 'services';
-import { Post } from 'types';
-import { pageSize } from 'config'; // Ideally pageSize would be an option that could be set e.g. 5, 10, 50 etc.
+import PostList from 'components/post-list/PostList';
+import PostDetails from 'components/post-details/PostDetails';
+import Error from 'components/error/Error';
 
 import s from './App.module.scss';
 
-const App = (): JSX.Element => {
-    const [page, setPage] = useState<number>(1);
-    const [categoryFilter, setCategoryFilter] = useState<string>('All');
-    const [loaded, setLoaded] = useState<boolean>(false);
-    const [totalPosts, setTotalPosts] = useState<number>(0);
-    const [posts, setPosts] = useState<Array<Post>>([]);
-
-    const changeCategoryFilter = (category: string) => {
-        setLoaded(false);
-        setCategoryFilter(category);
-        setTimeout(() => setLoaded(true), 1000);
-    }
-
-    const changePage = (page: number) => {
-        setLoaded(false);
-        setPage(page);
-        setTimeout(() => setLoaded(true), 1000);
-    };
-
-    useEffect(() => {
-        setLoaded(false);
-        const fetchPosts = async () => {
-            const results = categoryFilter === 'All' ? await getPosts() : await getPostsByCategory(categoryFilter); 
-            const { posts, total } = results;
-            const start = (page - 1) * pageSize;
-            const end = start + pageSize;
-            setTotalPosts(total);
-            setPosts(posts.slice(start, end));
-            setTimeout(() => setLoaded(true), 1000);
-        }
-        fetchPosts();
-    }, [categoryFilter, page]);
-
-    return (
-        <div className={s.app}>
-            <Options
-                filter={categoryFilter}
-                changeCategoryFilter={(category) => changeCategoryFilter(category)}
-            />
-            { !loaded ? (
-                <Spinner />
-            ) : (
-                <Posts posts={posts} />
-            )}
-            <PostsPagination
-                page={page}
-                total={totalPosts}
-                pageSize={pageSize}
-                onChange={(pageNumber) => changePage(pageNumber)}
-            />
-        </div>
-    );
-}
+const App = (): JSX.Element => (
+    <div className={s.app}>
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/">
+                    <PostList />
+                </Route>
+                <Route path={`/post/:id`} children={<PostDetails />} />
+                <Route path="/404" children={<Error />} />
+            </Switch>
+        </BrowserRouter>
+    </div>
+);
 
 export default App;

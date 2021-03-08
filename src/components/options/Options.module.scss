@@ -2,17 +2,14 @@
 
 .options {
     @include rem(margin-bottom, 30px);
+    @include border-radius(5px);
+    @include rem(padding, 15px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $color-border;
 
-    &__options {
-        @include border-radius(5px);
-        @include rem(padding, 15px);
-        display: flex;
-        flex-direction: column;
-        border: 1px solid $color-border;
-
-        @include breakpoint(md) {
-            flex-direction: row;
-        }
+    @include breakpoint(md) {
+        flex-direction: row;
     }
 
     &__option {

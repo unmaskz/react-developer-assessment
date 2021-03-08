@@ -1,11 +1,12 @@
 import { Post } from 'types';
 
 export const getPosts = async () => {
-    const response = await fetch('/api/posts').then(data => data.json());
-    return {
-        total: response.posts.length,
-        posts: response.posts,
-    };
+    return await fetch('/api/posts')
+    .then(data => data.json())
+    .then(data => ({
+        total: data.posts.length,
+        posts: data.posts,
+    }));
 }
 
 /* Fetches all categories */
@@ -30,4 +31,10 @@ export const getPostsByCategory = async (filterCategory: string) => {
         posts: postsByCategory,
         total: postsByCategory.length,
     }
+}
+
+/* Fetches post by id */
+export const getPostById = async (id: string) => {
+    const data = await getPosts();
+    return data.posts.find((post: Post) => post.id === id);
 }

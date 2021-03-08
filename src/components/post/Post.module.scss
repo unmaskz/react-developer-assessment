@@ -1,0 +1,71 @@
+@import 'styles/config.scss';
+
+.post {
+    @include rem(padding, 15px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid $color-border;
+    border-bottom: 0;
+
+    &:first-child {
+        @include border-radius(5px 5px 0 0);
+    }
+
+    &:last-child {
+        @include border-radius(0 0 5px 5px);
+        border-bottom: 1px solid $color-border;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+
+        @include breakpoint(md) {
+            flex-direction: row;
+        }
+    }
+
+    &__title {
+        @include rem(font-size, 21px);
+        font-weight: 600;
+    }
+
+    &__summary {
+        position: relative;
+    }
+
+    &__author {
+        display: flex;
+        align-items: center;
+
+        &Avatar {
+            @include border-radius(50%);
+            @include rem(height, 25px);
+            @include rem(width, 25px);
+            @include rem(margin-right, 10px);
+            background-color: $color-light;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__footer {
+        @include rem(margin-top, 15px);
+        
+        a {
+            color: $color-white;
+
+            &:hover {
+                text-decoration: none;
+                color: $color-border;
+            }
+        }
+    }
+}
